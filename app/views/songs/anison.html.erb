@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+    background-image: url(genre.jpg);
+}
+</style>
+</head>
+<body>
+<h1>アニソン</h1>
+<% @anisons.each do |t| %>
+    <% if t.category == "anison" %> 
+        <p>曲名<%= t.name %></p>
+        <p>ジャンル<%= t.genre %></p>
+        <p>アーティスト<%= t.singer %></p>
+    <% end %>
+    <%= link_to "詳細へ", song_path(t.id) %>
+<% end %>
+<%= link_to "みんなの投稿一覧に戻る", songs_path %>
+</body>
+</html>
+

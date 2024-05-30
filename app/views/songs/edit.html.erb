@@ -1,0 +1,43 @@
+<div class="main-container">
+<%= form_for @song do |f| %>
+    <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, :size => 30 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :genre %>
+    <%= f.select :genre, 
+    [["邦ロック", "邦ロック"], 
+    ["K-POP", "K-POP"], 
+    ["洋楽", "洋楽"]], include_blank: "選択して下さい" %>
+  </div>
+
+  <div class="field">
+  <%= f.label :singer %>
+  <%= f.text_field :singer, :size => 30 %>
+</div>
+
+  <div class="field">
+    <%= f.label :about  %>
+    <%= f.text_area :about, :size => "30x2" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :movie %>
+    <%= f.text_field :movie, :size => 30 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :youtube_url %>
+    <%= f.text_field :youtube_url, :size => 140 %>
+  </div>
+  
+    <%= f.submit "編集する" %>
+  <% end %>
+</div>

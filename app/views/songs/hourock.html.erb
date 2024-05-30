@@ -1,0 +1,14 @@
+<div class="main-container">
+<h1>邦ロック</h1>
+
+<% @hourocks.each do |t| %>
+    <% if t.category == "hourock" %> 
+        <p>曲名<%= t.name %></p>
+        <p>ジャンル<%= t.genre %></p>
+        <p>アーティスト<%= t.singer %></p>
+    <% end %>
+    <%= link_to "詳細へ", song_path(t.id) %>
+<% end %>
+
+<%= link_to "みんなの投稿一覧に戻る", songs_path %>
+</div>

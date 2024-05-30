@@ -1,0 +1,14 @@
+<div class="main-container">
+<h1>K-POP</h1>
+
+<% @kpops.each do |t| %>
+    <% if t.category == "kpop" %> 
+        <p>曲名<%= t.name %></p>
+        <p>ジャンル<%= t.genre %></p>
+        <p>アーティスト<%= t.singer %></p>
+    <% end %>
+    <%= link_to "詳細へ", song_path(t.id) %>
+<% end %>
+
+<%= link_to "みんなの投稿一覧に戻る", songs_path %>
+</div>
