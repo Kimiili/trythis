@@ -1,25 +1,59 @@
+<!DOCTYPE html> 
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>マイページ</title>
+    <link rel="stylesheet" href="stylesheets/mypage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Mochiy+Pop+P+One&family=Reenie+Beanie&display=swap"
+    rel="stylesheet"/>
+</head>
+
+<body>
 <div class="main-container">
-<h1>マイページ</h1>
+    <h1>マイページ</h1>
+    <div class="flexbox">
+        <div class="flex-item">
+            <div class="title">
+                プロフィール
+            </div>
+            <div class="text">
+            <p><%= image_tag @user.image_url, size: "250x200" if @user.image? %><br>
+            名前 : <%= @user.name %><br>
+                メールアドレス : <%= @user.email %><br>
+                プロフィール : <%= @user.profile %></p>
+                <% if current_user.id == @user.id %>
+                <p><%= link_to "編集する", edit_user_registration_path %></p>
+                <% end %>
+            </div>
+        </div>
 
-<p>名前 : <%= @user.name %></p>
-<p>メールアドレス : <%= @user.email %></p>
-<p>プロフィール : <%= @user.profile %></p>
-<%= image_tag @user.image_url, size: "250x200" if @user.image? %>
+        <div class="flex-item">
+            <div class="title">
+                投稿履歴
+            </div>
+            <div class="text">
+                <% @user.songs.each do |t| %>
+                <p><%= image_tag t.image_url, size: "250x200" if t.image? %><br>
+                <%= t.name %><br>
+                <%= t.singer %><br>
+                <%= link_to "詳細へ", song_path(t.id) %>
+            <% end %>
+            </div>
+        </div>
 
-<% if current_user.id == @user.id %>
-  <%= link_to "編集する", edit_user_registration_path %>
-<% end %>
-
-<h2>投稿履歴</h2>
-<% @user.songs.each do |t| %>
-  <%= t.user.name %>
-  <%= t.user.email %>
-  <%= t.name %>
-  <%= t.genre %>
-  <%= t.singer %>
-  <%= link_to "詳細へ", song_path(t.id) %>
-
-<% end %>
-
-<%= link_to "Tweet一覧に戻る", songs_path %>
+        <div class="flex-item">
+            <div class="text">
+            <%= link_to "Tweet一覧に戻る", songs_path %>
+            </div>
+        </div>
+    </div>
 </div>
+
+<footer>
+    <small>©Kimi Sekine 2024</small>
+</footer>
+</body>
+</html>

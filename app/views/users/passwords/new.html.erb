@@ -1,6 +1,21 @@
-<div class="main-container">
-<h2>Forgot your password?</h2>
+<!DOCTYPE html> 
+<html lang="ja">
 
+<head>
+    <meta charset="utf-8">
+    <title>パスワード忘れた</title>
+    <link rel="stylesheet" href="stylesheets/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Mochiy+Pop+P+One&family=Reenie+Beanie&display=swap"
+    rel="stylesheet"/>
+</head>
+
+<body>
+<div class="main-container">
+<div class="flexbox">
+<h1>パスワード再発行</h1>
+<div class="flex-item">
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
 
@@ -9,10 +24,13 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="actions">
+  <div class="field">
     <%= f.submit "Send me reset password instructions" %>
   </div>
+  <div class="field">
+  <%= render "users/shared/links" %>
+  </div>
 <% end %>
-
-<%= render "users/shared/links" %>
 </div>
+</div>
+</body>

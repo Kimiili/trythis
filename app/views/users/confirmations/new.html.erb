@@ -14,3 +14,52 @@
 <% end %>
 
 <%= render "users/shared/links" %>
+
+<!DOCTYPE html> 
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>マイページ</title>
+    <link rel="stylesheet" href="stylesheets/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Mochiy+Pop+P+One&family=Reenie+Beanie&display=swap"
+    rel="stylesheet"/>
+</head>
+
+<body>
+<div class="main-container">
+    <h1>Resend confirmation instructions</h1>
+    <div class="flexbox">
+
+    <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+    
+        <div class="flex-item">
+          <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+          </div>
+
+          <div class="field">
+          <%= f.submit "Resend confirmation instructions" %>
+          </div>
+
+          <div class="field">
+          <%= render "users/shared/links" %>
+          </div>
+
+          <% end %>
+
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+<% end %>
+<footer>
+    <small>©Kimi Sekine 2024</small>
+</footer>
+</body>
+</html>

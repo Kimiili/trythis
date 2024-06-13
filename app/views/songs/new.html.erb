@@ -1,6 +1,22 @@
+<!DOCTYPE html> 
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>新規投稿</title>
+    <link rel="stylesheet" href="stylesheets/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Mochiy+Pop+P+One&family=Reenie+Beanie&display=swap"
+    rel="stylesheet"/>
+</head>
+
+<body>
 <div class="main-container">
-<h3>新規投稿</h3>
+<h1>新規投稿</h1>
 <%= form_for @song do |f| %>
+  <div class="flexbox">
+    <div class="flex-item">
   <div class="field">
     <%= f.label :曲名 %>
     <%= f.text_field :name, :size => 30 %>
@@ -38,11 +54,11 @@
 
   <div class="field">
     <%= f.label :youtube_url %>
-    <%= f.text_field :youtube_url, :size => 140 %>
+    <%= f.text_field :youtube_url, :size => 70 %>
   </div>
 
   <%= f.submit "音楽を投稿する" %>
-<% end %>
-
+  <div class="field">
 <%= link_to "みんなの投稿に戻る", songs_path %>
+<% end %>
 </div>

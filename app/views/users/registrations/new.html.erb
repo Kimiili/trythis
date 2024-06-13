@@ -1,34 +1,68 @@
-<h2>Sign up</h2>
+<!DOCTYPE html> 
+<html lang="ja">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+<head>
+    <meta charset="utf-8">
+    <title>マイページ</title>
+    <link rel="stylesheet" href="stylesheets/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Mochiy+Pop+P+One&family=Reenie+Beanie&display=swap"
+    rel="stylesheet"/>
+</head>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
+<body>
+<div class="main-container">
+    <h1>新規登録</h1>
+    <div class="flexbox">
+        <div class="flex-item">
+            <div class="title">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%= render "users/shared/error_messages", resource: resource %>
+            </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+            <div class="field">
+            <%= f.label :name %><br />
+            <%= f.text_field :name, autofocus: true %>
+            </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+            <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+            <div class="field">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password" %>
+            </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+            <div class="field">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
+
+            <div class="field">
+            <%= f.submit "Sign up" %>
+            </div>
+
+            <div class="field">
+            <%= link_to "Tweet一覧に戻る", songs_path %>
+            </div>
+
+            <div class="field">
+            <%= render "users/shared/links" %>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
 <% end %>
-
-<%= render "users/shared/links" %>
+<footer>
+    <small>©Kimi Sekine 2024</small>
+</footer>
+</body>
+</html>

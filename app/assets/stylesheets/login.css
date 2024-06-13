@@ -1,0 +1,14 @@
+.flexbox {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content:center;
+    align-items:center;
+  }
+  
+  .field {
+    background: rgba(128, 128, 128, 0.2);
+    border: 1px solid #000;
+    width: 800px;
+    text-align: center;
+  }

@@ -1,27 +1,55 @@
-<h2>ログイン</h2>
-<p>※登録したメールアドレスとパスワードを入力してください。</p>
+<!DOCTYPE html> 
+<html lang="ja">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <h2>メール </h2><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<head>
+    <meta charset="utf-8">
+    <title>ログイン</title>
+    <link rel="stylesheet" href="stylesheets/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Mochiy+Pop+P+One&family=Reenie+Beanie&display=swap"
+    rel="stylesheet"/>
+</head>
 
-  <div class="field">
-    <h2>パスワード </h2><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+<body>
+<div class="main-container">
+    <h1>ログイン</h1>
+    <h3>登録したメールアドレスとパスワードを入力してください。</h3>
+    <div class="flexbox">
+        <div class="flex-item">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="field">
+              <h2>メール </h2><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <h2>私を覚える</h2>
+              <div class="field">
+              <h2>パスワード </h2><br />
+              <%= f.password_field :password, autocomplete: "off" %>
+              </div>
+            
+          <% if devise_mapping.rememberable? -%>
+              <div class="field">
+              <%= f.check_box :remember_me %>
+              <h2>私を覚える</h2>
+              </div>
+          <% end %>
+
+              <div class="field">
+              <%= f.submit "Log in" %>
+              </div>
+
+              <div class="field">
+              <%= render "users/shared/links" %>
+              </div>
+
+              <% end %>
+        </div>
     </div>
-  <% end -%>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+<footer>
+    <small>©Kimi Sekine 2024</small>
+</footer>
+</body>
+</html>

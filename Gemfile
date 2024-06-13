@@ -68,7 +68,7 @@ group :test do
 end
 
 group :production do
-  gem "pg", "~> 1.4"
+  gem "pg"
 end
 
 gem 'devise'
@@ -76,7 +76,9 @@ gem 'devise'
 gem 'hirb'
 gem 'hirb-unicode'
 
-gem 'carrierwave' , '~> 1.3' , '>= 1.3.1'
+gem 'carrierwave'
 gem 'cloudinary'
 
 gem 'dotenv-rails'
+
+gem 'webpacker', '5.4.3'
